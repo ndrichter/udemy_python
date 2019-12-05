@@ -29,7 +29,7 @@ squares = set(squares_tuple)
 print(squares)
 print(len(squares))
 
-# all items present in both sets
+# all items in each set
 print(even.union(squares))
 print(len(even.union(squares)))
 
@@ -53,3 +53,41 @@ print(sorted(even - squares))
 print("squares minus even")
 print(squares.difference(even))
 print(squares - even)
+
+# update existing set
+# print("=" * 40)
+# print(sorted(even))
+# print(squares)
+# even.difference_update(squares)
+# print(sorted(even))
+
+# items in either set but not in both
+print("symmetric even minus squares")
+print(sorted(even.symmetric_difference(squares)))
+print("symmetric squares minus even")
+print(sorted(squares.symmetric_difference(even)))
+
+# remove specific items in set
+print("=" * 40)
+# squares.discard(4)
+# squares.remove(16)
+# squares.discard(8)
+# print(squares)
+# squares.remove(8) will raise an error, item needs to be in set
+
+even = set(range(0, 40, 2))
+print(even)
+
+squares_tuple = (4, 6, 16)
+squares = set(squares_tuple)
+print(squares)
+
+if squares.issubset(even):
+    print("squares is a subset of even")
+
+if even.issuperset(squares):
+    print("even is a superset of squares")
+
+# frozen sets,  immutable
+even = frozenset(range(0, 100, 2))
+# even.add(3) will error
