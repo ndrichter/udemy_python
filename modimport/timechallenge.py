@@ -24,11 +24,11 @@ available_zones = {'1': "Africa/Tunis",
                    '8': "US/Hawaii",
                    '9': "Zulu"}
 
-print("Please choose a time zone (or 0 to quit):")
-for place in sorted(available_zones):
-    print("\t{}. {}".format(place, available_zones[place]))
-
 while True:
+    print("Please choose a time zone (or 0 to quit):")
+    for place in sorted(available_zones):
+        print("\t{}. {}".format(place, available_zones[place]))
+
     choice = input()
 
     if choice == '0':
