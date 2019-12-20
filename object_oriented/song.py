@@ -4,7 +4,7 @@ class Song:
     
     Attributes:
         title (str): the title of the song
-        artist (Artist): Artist object representing the song's creator
+        artist (str): name of the song's creator
         duration (int): duration of song in seconds. Can be zero. 
     """
 
@@ -34,7 +34,7 @@ class Album:
     Attributes:
         name (str): name of album
         year (int): year album was released
-        artist (Artist): artist responsible for the album
+        artist (str): name of the artist responsible for the album
             if not specified, defaults to artist with name "Various Artists"
         tracks (List[Song]): a list of the songs on the album
 
@@ -46,7 +46,7 @@ class Album:
         self.name = name
         self.year = year
         if artist is None:
-            self.artist = Artist("Various Artists")
+            self.artist = "Various Artists"
         else:
             self.artist = artist
         self.tracks = []
@@ -110,7 +110,7 @@ class Artist:
         album_found = find_object(name, self.albums)
         if album_found is None:
             print("{} not found".format(name))
-            album_found = Album(name, year, self)
+            album_found = Album(name, year, self.name)
             self.add_album(album_found)
         else:
             print("{} album found".format(name))
